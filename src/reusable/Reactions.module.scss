@@ -1,3 +1,5 @@
+@import '../styles/base';
+
 .reactionsContainer {
   height: 32px;
   border-radius: 24px;
@@ -28,6 +30,10 @@
     padding: 3px;
     justify-content: space-between;
     align-items: center;
+
+    &_name {
+      padding-left: 10px;
+    }
   }
 
   &__tooltip {
@@ -44,13 +50,13 @@
 
   &__userReactedTabsClick {
     margin-left: auto;
-    color: rgb(130, 135, 148);
+    color: $secondary-text-color;
     font-weight: 600;
     display: block;
     margin-top: 13px;
 
     &:hover {
-      color: rgb(43, 43, 177);
+      color: $link-hover-color;
     }
   }
 }

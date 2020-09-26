@@ -24,7 +24,7 @@ export const Reactions = ({
       <div key={id} className={styles.reactionsContainer__userListItem}>
         <div>
           <img style={{ borderRadius: '50%', height: '35px', width: '35px' }} src={avatar} alt={first_name} />
-          <span>{first_name}</span>
+          <span className={styles.reactionsContainer__userListItem_name}>{first_name}</span>
         </div>
         <div>
         <Button type="primary" icon={<UserAddOutlined />}> Add Friend </Button>
@@ -82,7 +82,7 @@ export const Reactions = ({
       <div className={styles.reactionsContainer__userReactedTabsClick}>
       {userHasReacted[content_id] && <span>you and &nbsp;</span>}
       <span>
-        {userReactedToContent[content_id].length} others
+        {userReactedToContent[content_id].length} reacted
       </span>
       </div>
       </Popover>

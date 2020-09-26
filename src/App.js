@@ -10,7 +10,7 @@ import styles from './App.module.scss';
 function App() {
   const { get, post, del, loading, error } = useFetch(`${BASE_URL}`);
   const [reactionsWithUsers, setReactionsWithUsers] = useState({});
-  const [userReactedToContent, setUserReactedToContent] = useState({});
+  const [userReactedToContent, setUserReactedToContent] = useState(null);
   const [updatedUserReaction, setUpdatedUserReaction] = useState({});
 
   useEffect(() => {
