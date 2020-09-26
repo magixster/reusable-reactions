@@ -7,6 +7,7 @@ const { Meta } = Card;
 const Post = ({
   id,
   title,
+  img,
   description,
   content_id,
   reactionsWithUsers: { reactions = [], users = [] },
@@ -24,7 +25,7 @@ const Post = ({
     key={id}
     hoverable
     style={{ width: 300 }}
-    cover={null}
+    cover={<img alt={title} width={300} height={300} src={img} />}
   >
     <Meta title={title} description={description} />
     <p>{error && 'Something went wrong!'}</p>

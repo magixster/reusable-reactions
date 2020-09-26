@@ -11,7 +11,7 @@ function App() {
   const { get, post, del, loading, error } = useFetch(`${BASE_URL}`);
   const [reactionsWithUsers, setReactionsWithUsers] = useState({});
   const [userReactedToContent, setUserReactedToContent] = useState({});
-  const [updatedUserReaction, setUpdatedUserReaction] = useState(null);
+  const [updatedUserReaction, setUpdatedUserReaction] = useState({});
 
   useEffect(() => {
     async function loadReactionsAndUsers(){
@@ -37,13 +37,13 @@ function App() {
       reaction_id: reaction_id,
       content_id: content_id,
     });
-    setUpdatedUserReaction(updatedUserReaction);
+    setUpdatedUserReaction({ ...updatedUserReaction, [updatedUserReaction.content_id]: true });
     getReactionsForContentId();
   }
 
   const removeUserReactionOnEmoji = async () => {
     await del(`/user_content_reactions/${updatedUserReaction.id}`);
-    setUpdatedUserReaction(null);
+    setUpdatedUserReaction({ ...updatedUserReaction, [updatedUserReaction.content_id]: false });
     getReactionsForContentId();
   }
 
@@ -58,7 +58,7 @@ function App() {
         userReactedToContent={userReactedToContent}
         updateUserReactionOnEmoji={updateUserReactionOnEmoji}
         removeUserReactionOnEmoji={removeUserReactionOnEmoji}
-        userHasReacted={!!updatedUserReaction}
+        userHasReacted={updatedUserReaction}
       />
     </div>
   );

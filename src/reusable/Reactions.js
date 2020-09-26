@@ -53,22 +53,24 @@ export const Reactions = ({
 
   return (
     <div className={styles.reactionsContainer}>
+      <div>
       {reactions.map(({ id, name, emoji }) => (
-          <Tooltip overlayClassName={styles.reactionsContainer__tooltip} color={'#161616'} placement="top" title={name} key={id}>
-            <div
-              key={id}
-              onClick={() => {
-                if(userHasReacted) {
-                  updateUserReactionOnEmoji(id, content_id);
-                } else {
-                  removeUserReactionOnEmoji();
-                }
+        <Tooltip overlayClassName={styles.reactionsContainer__tooltip} color={'#161616'} placement="top" title={name} key={id}>
+          <div
+            key={id}
+            onClick={() => {
+              if(!userHasReacted[content_id]) {
+                updateUserReactionOnEmoji(id, content_id);
+              } else {
+                removeUserReactionOnEmoji();
               }
-              }
-              className={styles.reactionsContainer__emoji}
-            >{emoji}</div>
-          </Tooltip>
-      ))}
+            }
+            }
+            className={styles.reactionsContainer__emoji}
+          >{emoji}</div>
+        </Tooltip>
+    ))}
+      </div>
       <Popover
         key={content_id}
         content={allReactionsByUsers}
@@ -77,7 +79,12 @@ export const Reactions = ({
         visible={clicked}
         onVisibleChange={(visible) => handleClickChange(visible) }
       >
-        <span>{userReactedToContent[content_id].length}</span>
+      <div className={styles.reactionsContainer__userReactedTabsClick}>
+      {userHasReacted[content_id] && <span>you and &nbsp;</span>}
+      <span>
+        {userReactedToContent[content_id].length} others
+      </span>
+      </div>
       </Popover>
     </div>);
 };
