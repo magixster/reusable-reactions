@@ -19,3 +19,5 @@
 - **updateUserReactionOnEmoji** Fn => callback for API for updating reaction on server
 - **removeUserReactionOnEmoji** Fn => callback for API for removing reaction on server
 - **userHasReacted** { } => ID of the comment/post value => [] of object having reactions for current post/comment
+
+![Screenshot](Reaction.png)
