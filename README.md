@@ -20,6 +20,5 @@
 - **removeUserReactionOnEmoji** Fn => callback for API for removing reaction on server
 - **userHasReacted** { } => ID of the comment/post value => [] of object having reactions for current post/comment
 
-__Reusable Component on Bottom__
-
+### Reusable Component on Bottom
 ![Screenshot](Reaction.png)
