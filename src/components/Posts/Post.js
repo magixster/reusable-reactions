@@ -24,7 +24,7 @@ const Post = ({
     <Card
     key={id}
     hoverable
-    style={{ width: 300 }}
+    style={{ width: 350 }}
     cover={<img alt={title} width={300} height={300} src={img} />}
   >
     <Meta title={title} description={description} />
